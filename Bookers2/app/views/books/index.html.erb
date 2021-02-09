@@ -30,7 +30,6 @@
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
-        <% @books.each do |book| %>
         <thead>
           <tr>
             <th></th>
@@ -39,6 +38,7 @@
             <th colspan="3"></th>
           </tr>
         </thead>
+        <% @books.each do |book| %>
         <tbody>
           <tr>
             <!--あとで各linkの追加-->
