@@ -8,7 +8,7 @@
 
       <!--User info-->
       <h2>User info</h2>
-        <%= attachment_image_tag @user, :profile_image %>
+        <%= attachment_image_tag @user, :profile_image, size: "30x30", fallback: "no_image.jpg" %>
         <table>
           <tbody>
             <tr></tr>

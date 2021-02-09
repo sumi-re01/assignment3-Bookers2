@@ -42,11 +42,13 @@
         <tbody>
           <tr>
             <!--あとで各linkの追加-->
-            <td><%= book.user.name %></td>
+            <td>
+              <%= link_to user_path(book.user.id) do %>
+                <%= book.user.name %>
+              <% end %>
+            </td>
             <td><%= book.title %></td>
             <td><%= book.body %></td>
-            <td>Edit</td>
-            <td>Destroy</td>
           </tr>
         </tbody>
         <% end %>
