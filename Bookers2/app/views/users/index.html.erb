@@ -57,11 +57,11 @@
           <% @users.each do |user| %>
           <tr>
             <!--あとで各linkの追加-->
-            <td><%= attachment_image_tag @user, :profile_image, size: "30x30" %></td>
-            <td><%= book.title %></td>
-            <td><%= book.body %></td>
-            <td>Edit</td>
-            <td>Destroy</td>
+            <td><%= attachment_image_tag @user, :profile_image, size: "30x30", fallback: "no_image.jpeg" %></td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to "Show", book_path(user.books.id) %>
+            </td>
           </tr>
           <% end %>
         </tbody>
