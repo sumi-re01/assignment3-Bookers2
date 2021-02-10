@@ -1,8 +1,9 @@
 <div class="col-md-6 mx-auto mt-5">
 
   <h2>User info</h2>
-
   <%= form_with model: @user, local:true do |f| %>
+    <!--erroe messages-->
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
