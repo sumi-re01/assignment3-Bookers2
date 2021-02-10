@@ -3,14 +3,12 @@
 <!--erroe messages-->
 
   <div class="row">
-    <!--User info, New book-->
+  <!--User info, New book-->
     <div class="col-md-3">
-
-      <%= render partial: 'users/user', locals: {user: @user, book: @book} %>
-
+      <%= render partial: 'books/user', locals: {user: @user, book: @book} %>
     </div>
 
-    <!--Users一覧-->
+  <!--Users一覧-->
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
       <table class="table table-hover table-inverse">

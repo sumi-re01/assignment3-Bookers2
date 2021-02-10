@@ -3,7 +3,9 @@ class BooksController < ApplicationController
   def show
     # book詳細画面の新期投稿フォームにはBook.new,詳細にはBook.find(parama[:id])を入れたい
     @user = current_user
-    @book = Book.find(params[:id])
+    @book = Book.new
+    # ↓要編集
+    @booka = Book.find(params[:id])
   end
 
   def index
@@ -13,10 +15,10 @@ class BooksController < ApplicationController
   end
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.user = current_user
     if @book.save
       flash[:notice] = "You have created book successfully."
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       @user = current_user
       @books = Book.all
@@ -39,6 +41,8 @@ class BooksController < ApplicationController
 
   def destroy
    @book = Book.find(params[:id])
+   @book.destroy
+   redirect_to books_path
   end
 
 

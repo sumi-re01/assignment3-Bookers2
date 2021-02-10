@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
 
+  def show
+    @user = User.find(params[:id])
+    @books = @user.books
+    @book = Book.new
+  end
+
+  def index
+    @user = current_user
+    @users = User.all
+    @book = Book.new
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -12,18 +24,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
-  def show
-    @user = User.find(params[:id])
-    @books = @user.books
-  end
-
-  def index
-    @user = current_user
-    @users = User.all
-    @books = @user.books
-  end
-
 
   private
 
