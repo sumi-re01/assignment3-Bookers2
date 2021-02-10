@@ -1,7 +1,5 @@
-<!--Books show-->
+<!--Books show. ※Book.new => @booka-->
 <div class="container px-5 px-sm-0">
-  <!--erroe messages-->
-
   <div class="row">
     <!--User info, New book-->
     <div class="col-md-3">
@@ -30,8 +28,8 @@
             <td><%= @booka.body %></td>
             <!--作成ユーザなら表示↓-->
             <% if @booka.user == current_user %>
-            <td><%= link_to "Edit", edit_book_path(@booka) %></td>
-            <td><%= link_to "Destroy", book_path(@booka.id), method: :delete, data: {confirm: "「#{@booka.title}」を削除します。"} %></td>
+            <td><%= link_to "Edit", edit_book_path(@booka), class: 'btn btn-success' %></td>
+            <td><%= link_to "Destroy", book_path(@booka.id), class:'btn btn-danger', method: :delete, data: {confirm: "「#{@booka.title}」を削除します。"} %></td>
             <% end %>
           </tr>
         </tbody>

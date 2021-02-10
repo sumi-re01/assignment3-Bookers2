@@ -1,26 +1,26 @@
 <!--User edit-->
-<div class="col-md-6 mx-auto mt-5">
+<div class="col-md-6 mx-auto">
 
   <h2>User info</h2>
   <%= form_with model: @user, local:true do |f| %>
 <!--erroe messages-->
-  <%= render 'users/errors', model: f.object %>
+  <%= render 'books/errors', model: f.object %>
 <!---->
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :profile_image, "Image" %>
     <%= f.attachment_field :profile_image %>
   </div>
-    <div class="field">
+  <div class="form-group">
     <%= f.label :introduction %>
-    <%= f.text_area :introduction %>
+    <%= f.text_area :introduction,class: 'form-control' %>
   </div>
 
-  <div class="btn">
-    <%= f.submit "Update User" %>
+  <div class="form-group">
+    <%= f.submit "Update User", class: 'btn btn-secondary' %>
   </div>
   <% end %>
 
