@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # ログイン前
   before_action :authenticate_user!, except: [:top, :about]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
