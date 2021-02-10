@@ -1,18 +1,19 @@
-<h2>User info</h2>
-<%= attachment_image_tag user, :profile_image %>
-<table>
-  <tbody>
-    <tr></tr>
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
-  </tbody>
-</table>
-<%= link_to edit_user_registration_path do %>
-  edit
-<% end %>
+        <%= attachment_image_tag user_info, :profile_image, size: "100x100", fallback: "no_image.jpg" %>
+        <table class="table table-hover table-inverse">
+          <tbody>
+            <tr></tr>
+            <tr>
+              <th>name</th>
+              <th><%= user_info.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= user_info.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+        <% if user_info.id == current_user.id %>
+          <%= link_to edit_user_registration_path(user_info.id) do %>
+           edit
+          <% end %>
+       <% end %>

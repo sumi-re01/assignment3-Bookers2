@@ -8,6 +8,8 @@
 
 
       <!--User info-->
+      <h2>User info</h2>
+      <%= render partial: 'users/user_info', locals: {user_info: @user} %>
 
       <!--New Book-->
       <h2>New book</h2>
@@ -44,10 +46,14 @@
             <!--あとで各linkの追加-->
             <td>
               <%= link_to user_path(book.user.id) do %>
-                <%= book.user.name %>
+                <%= attachment_image_tag book.user, :profile_image, size: "40x40", fallback: "no_image.jpg" %>
               <% end %>
             </td>
-            <td><%= book.title %></td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
             <td><%= book.body %></td>
           </tr>
         </tbody>
