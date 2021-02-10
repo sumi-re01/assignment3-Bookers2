@@ -1,0 +1,24 @@
+<div class="col-md-6 mx-auto mt-5">
+
+  <h2>User info</h2>
+
+  <%= form_with model: @user, local:true do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_image, "Image" %>
+    <%= f.attachment_field :profile_image %>
+  </div>
+    <div class="field">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction %>
+  </div>
+
+  <div class="btn">
+    <%= f.submit "Update Book" %>
+  </div>
+  <% end %>
+
+</div>

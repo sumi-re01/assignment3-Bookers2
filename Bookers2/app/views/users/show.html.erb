@@ -8,38 +8,12 @@
 
       <!--User info-->
       <h2>User info</h2>
-        <%= attachment_image_tag @user, :profile_image, size: "30x30", fallback: "no_image.jpg" %>
-        <table>
-          <tbody>
-            <tr></tr>
-            <tr>
-              <th>name</th>
-              <th><%= @user.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-              <th><%= @user.introduction %></th>
-            </tr>
-          </tbody>
-        </table>
-        <%= link_to edit_user_registration_path(@user.id) do %>
-         edit
-        <% end %>
+      <%= render partial: 'users/user_info', locals: {user_info: @user} %>
+
       <!--New Book-->
       <h2>New book</h2>
-      <%= form_with model:@book, local:true do |f| %>
-        <div class="field">
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-        </div>
-        <div class="field">
-          <%= f.label :body %>
-          <%= f.text_area :body %>
-        </div>
-        <div class="btn">
-          <%= f.submit "Create Book" %>
-        </div>
-      <% end %>
+      <%= render partial: 'books/new_book', locals: {new_book: @book} %>
+
     </div>
 
     <!--Books一覧-->

@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
 
   def show
+    # book詳細画面の新期投稿フォームにはBook.new,詳細にはBook.find(parama[:id])を入れたい
     @user = current_user
-    @new = Book.new
     @book = Book.find(params[:id])
   end
 
@@ -24,6 +24,8 @@ class BooksController < ApplicationController
   end
   def update
     @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to book_path(@book.id)
   end
 
   def destroy

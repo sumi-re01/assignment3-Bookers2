@@ -15,20 +15,13 @@
       <!--New Book-->
       <h2>New book</h2>
       <%= render partial: 'books/new_book', locals: {new_book: @book} %>
+      
     </div>
 
-    <!--Books一覧-->
+    <!--Book詳細-->
     <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
+      <h2>Book detail</h2>
       <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <td>
@@ -37,8 +30,17 @@
                 <%= @book.user.name %>
               <% end %>
             </td>
-            <td><%= @book.title %></td>
+            <td>
+              <%= link_to book_path(@book) do %>
+                <%= @book.title %>
+              <% end %>
+            </td>
             <td><%= @book.body %></td>
+            <!--作成ユーザなら表示↓-->
+            <% if @book.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(@book) %></td>
+            <td><%= link_to "Delete", book_path(@book.id), method: :delete, data: {confirm: "「#{@book.title}」を削除します。"} %></td>
+            <% end %>
           </tr>
         </tbody>
       </table>

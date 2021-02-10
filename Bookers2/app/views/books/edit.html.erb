@@ -1,0 +1,19 @@
+<div class="col-md-6 mx-auto mt-5">
+  <h2>Editing Book</h2>
+  <%= form_with model: @book, local:true do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body, "opinion"%>
+    <%= f.text_area :body %>
+  </div>
+  <div class="btn">
+    <%= f.submit "Update Book" %>
+  </div>
+  <% end %>
+  <div class="row">
+    <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+  </div>
+</div>
