@@ -14,7 +14,8 @@
 
       <!--New Book-->
       <h2>New book</h2>
-      <%= render partial: 'books/new_book'
+      <%= render partial: 'books/new_book', locals: {new_book: @book} %>
+    </div>
 
     <!--Books一覧-->
     <div class="col-md-8 offset-md-1">
